@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/register.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+
+    <script src="../scripts/register.js" defer></script>
+
+    <title>Kenzie Empresas</title>
+</head>
+<body>
+    <header class="header__container">
+        <img class="header__logo" src="../img/header_logo.svg" alt="Header Logo">
+        <img class="header__menu" src="../img/header_menu.svg" alt="Header Menu">
+        <div class="header__box">   
+            <button id="homeButton" class="button__home">Home</button>
+            <button id="loginButton" class="button__login">Login</button>
+        </div>
+    </header>
+    <main class="main__container">
+        <div class="main__box">
+            <h1 class="main__title">Cadastra-se</h1>
+            <div class="input__box">
+                <input class="register__input" type="text" name="nameInput" id="nameInput" placeholder="Seu nome">
+                <input class="register__input" type="email" name="emailInput" id="emailInput" placeholder="Seu e-mail">
+                <input class="register__input" type="password" name="passwordInput" id="passwordInput" placeholder="Sua senha">
+                <select class="register__input">
+                    <option selected hidden>Nível Profissional</option>
+                    <option value="junior">Junior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="senior">Senior</option>
+                </select>
+                <div class="button__box">
+                    <button class="register__button">Cadastre-se</button>
+                    <button class="return__button">Retornar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

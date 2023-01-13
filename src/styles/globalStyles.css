@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style-type: none;
+}
+
+:root{
+    --color-brand-1: #4200FF;
+    --color-brand-2: #CE4646;
+    --color-brand-3: #4BA036;
+    --color-white-1: #FFFFFF;
+    --color-black-1: #000000;
+
+}
+
+.hidden{
+    display: none;
+}
