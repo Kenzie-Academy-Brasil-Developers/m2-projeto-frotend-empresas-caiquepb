@@ -1,3 +1,5 @@
+import { getUser, login } from "./requests.js";
+
 function openModal(){
 
     const headerContainer = document.querySelector('.header__container')
@@ -96,14 +98,30 @@ function registerAcess(){
     });
 }
 
-function UserPageAcess(){
+function renderLogin() {
+    const user = getUser()
 
-    const loginButton = document.querySelector('.login__button')
-        
-    loginButton.addEventListener('click', () => {
-
+    if(user && user.isAdm){
         window.location.replace("/src/pages/userPage.html");
+    }else if(user && !user.isAdm){
+        window.location.replace("/src/pages/userPage.html");
+    }
+}
+
+function userPageAcess(){
+    const inputs = document.querySelectorAll('.login__input')
+    const loginButton = document.querySelector('.login__button')
+    const loginUser = {}
         
+    loginButton.addEventListener('click', async (event) => {
+        event.preventDefault()
+        
+        inputs.forEach(input => {
+            loginUser[input.name] = input.value
+        })
+        const request = await login(loginUser)
+
+        localStorage.setItem('user', JSON.stringify(request))
     })
 }
 
@@ -114,4 +132,6 @@ homeAcess()
 
 registerAcess()
 
-UserPageAcess()
+renderLogin()
+
+userPageAcess()
