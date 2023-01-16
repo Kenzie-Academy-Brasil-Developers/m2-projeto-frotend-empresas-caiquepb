@@ -1,4 +1,4 @@
-import { getUser, login } from "./requests.js";
+import { createUser } from "/src/scripts/requests.js";
 
 function openModal(){
 
@@ -10,24 +10,24 @@ function openModal(){
         const modalClose = document.createElement('img')
         const headerModal = document.createElement('div')
         const buttonHome = document.createElement('button')
-        const buttonRegister = document.createElement('button')
+        const buttonLogin = document.createElement('button')
         
 
-        modalClose.src = '../img/modal_close.svg'
+        modalClose.src = '/src/img/modal_close.svg'
         modalClose.alt = 'Modal Close'
         modalClose.classList.add('modal__close')
 
         headerModal.classList.add('header__modal')
-        buttonHome.classList.add('button__white--modal') 
-        buttonRegister.classList.add('button__blue--modal')
+        buttonHome.classList.add('button__white--modal')
+        buttonLogin.classList.add('button__blue--modal')
         
         buttonHome.id = 'homeButton'
-        buttonRegister.id = 'registerButton'
+        buttonLogin.id = 'loginButton'
         
         buttonHome.innerText = "Home"
-        buttonRegister.innerText = "Cadastro"
-        
-        headerModal.append(buttonHome, buttonRegister)
+        buttonLogin.innerText = "Login"
+
+        headerModal.append(buttonHome, buttonLogin)
         headerContainer.append(modalClose, headerModal)
 
         menuImage.remove()
@@ -36,12 +36,9 @@ function openModal(){
 
         homeAcess()
 
-        registerAcess()
-
+        loginAcess()
     })
-
 }
-
 function closeModal(){
 
     const headerContainer = document.querySelector('.header__container')
@@ -52,7 +49,7 @@ function closeModal(){
 
         const menuImage = document.createElement('img')
 
-        menuImage.src = '../img/header_menu.svg'
+        menuImage.src = '/src/img/header_menu.svg'
         menuImage.alt = 'Modal Menu'
         menuImage.classList.add('header__menu')
 
@@ -63,75 +60,61 @@ function closeModal(){
 
         openModal()
 
-        registerAcess()
-
         homeAcess()
+
+        loginAcess()
     })
-
 }
-
 function homeAcess(){
 
     const homeButton = document.querySelectorAll('#homeButton')
+    const returnButton = document.querySelector('.return__button')
 
     homeButton.forEach(element => {
         
         element.addEventListener('click', () => {
 
-            window.location.replace("/index.html");
-            
+            window.location.replace("/index.html"); 
         })
     });
+
+    returnButton.addEventListener('click', () => {
+
+        window.location.replace("/index.html")
+    })
 }
+function loginAcess(){
 
-function registerAcess(){
-
-    const registerButton = document.querySelectorAll('#registerButton')
+    const loginButton = document.querySelectorAll('#loginButton')
         
-    registerButton.forEach(element => {
+    loginButton.forEach(element => {
         
         element.addEventListener('click', () => {
 
-            window.location.replace("/src/pages/register.html");
-            
+            window.location.replace("/src/pages/loginPage/login.html");
         })
-    });
-}
-
-function renderLogin() {
-    const user = getUser()
-
-    if(user && user.isAdm){
-        window.location.replace("/src/pages/userPage.html");
-    }else if(user && !user.isAdm){
-        window.location.replace("/src/pages/userPage.html");
-    }
-}
-
-function userPageAcess(){
-    const inputs = document.querySelectorAll('.login__input')
-    const loginButton = document.querySelector('.login__button')
-    const loginUser = {}
-        
-    loginButton.addEventListener('click', async (event) => {
-        event.preventDefault()
-        
-        inputs.forEach(input => {
-            loginUser[input.name] = input.value
-        })
-        const request = await login(loginUser)
-
-        localStorage.setItem('user', JSON.stringify(request))
     })
 }
+function createUserForm() {
+    const inputs = document.querySelectorAll('.register__input')
+    const button = document.querySelector('.register__button')
+    const newUser = {}
+  
+    button.addEventListener('click', async (event) => {
+      event.preventDefault()
+  
+      inputs.forEach(input => {
+        newUser[input.name] = input.value
+      })
+  
+      const request = await createUser(newUser)
+      window.location.replace("/src/pages/loginPage/login.html");
+    })
+  
+    return newUser
+}
 
-
+createUserForm()
 openModal()
-
 homeAcess()
-
-registerAcess()
-
-renderLogin()
-
-userPageAcess()
+loginAcess()

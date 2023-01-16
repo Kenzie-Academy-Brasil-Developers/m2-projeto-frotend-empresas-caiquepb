@@ -1,3 +1,5 @@
+import { listAllCompanies, listCompaniesSectors } from "./requests.js";
+
 function openModal(){
 
     const headerContainer = document.querySelector('.header__container')
@@ -10,7 +12,7 @@ function openModal(){
         const buttonLogin = document.createElement('button')
         const buttonRegister = document.createElement('button')
 
-        modalClose.src = './src/img/modal_close.svg'
+        modalClose.src = '/src/img/modal_close.svg'
         modalClose.alt = 'Modal Close'
         modalClose.classList.add('modal__close')
 
@@ -35,9 +37,7 @@ function openModal(){
 
         registerAcess()
     })
-
 }
-
 function closeModal(){
 
     const headerContainer = document.querySelector('.header__container')
@@ -63,9 +63,7 @@ function closeModal(){
 
         registerAcess()
     })
-
 }
-
 function loginAcess(){
 
     const loginButton = document.querySelectorAll('#loginButton')
@@ -74,12 +72,10 @@ function loginAcess(){
         
         element.addEventListener('click', () => {
 
-            window.location.replace("/src/pages/login.html");
-            
+            window.location.replace("/src/pages/loginPage/login.html");
         })
     });
 }
-
 function registerAcess(){
 
     const registerButton = document.querySelectorAll('#registerButton')
@@ -88,14 +84,50 @@ function registerAcess(){
         
         element.addEventListener('click', () => {
 
-            window.location.replace("/src/pages/register.html");
-            
+            window.location.replace("/src/pages/registerPage/register.html");
         })
     });
 }
+async function renderCompanies(){
+
+    const companiesList = document.querySelector('.list__container')
+    const companies = await listAllCompanies()
+
+    companies.forEach(company => {
+        companiesList.insertAdjacentHTML('beforeend', `
+            <li class="list__option">
+                <h3 class="list__title">${company.name}</h3>
+                <p class="list__tag">${company.opening_hours}</p>
+                <p class="list__tag2">${company.sectors.description}</p>
+            </li>
+        `)
+    })
+
+    renderSearch()
+}
+async function renderSearch(){
+
+    const companiesList = document.querySelector('.list__container')
+    const sectorTag = document.querySelectorAll('.list__tag2')
+
+    sectorTag.forEach(sector => {
+        sector.addEventListener('click', async () => {
+            companiesList.innerHTML = ''
+            const companies = await listCompaniesSectors(sector.innerText)
+            companies.forEach(company => {
+                companiesList.insertAdjacentHTML('beforeend', `
+                    <li class="list__option">
+                        <h3 class="list__title">${company.name}</h3>
+                        <p class="list__tag">${company.opening_hours}</p>
+                        <p class="list__tag2">${company.sectors.description}</p>
+                    </li>
+                `)
+            })
+        })
+    })
+}
 
 openModal()
-
 loginAcess()
-
 registerAcess()
+renderCompanies()

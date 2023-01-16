@@ -1,0 +1,144 @@
+.button__logout{
+    height: 54.86%;
+    width: 11.3%;
+
+    background-color: var(--color-white-1);
+    border: 1px solid var(--color-brand-1);
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+
+    color: var(--color-brand-1);
+}
+
+.main__container{
+    padding: 0 140px;
+}
+
+.department__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 100px 0 20px 0;
+    
+}
+
+.department__title{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: var(--color-black-1);
+}
+
+.button__box{
+    position: relative;
+
+    width: 150px;
+    height: 48px;
+}
+
+.plus_sign{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 5px;
+    top: 8px;
+}
+
+.create__button{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-align: center;
+
+    width: 150px;
+    height: 48px;
+
+    color: var(--color-white-1);
+    background: var(--color-brand-1);
+
+    border: 0;
+}
+
+.department__box, .user__box{
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 28px 92px;
+    
+    width: 1182px;
+    height: 385px;
+
+    overflow-y: auto;
+
+    background: #F8F8F8;
+
+    padding: 34px 56px;
+}
+
+.list__option{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 489px;
+    height: 196px;
+
+    padding: 18px 29px;
+
+    background: var(--color-white-1);
+    border-bottom: 1px solid #4200FF;
+}
+
+.list__title{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: var(--color-black-1);
+}
+
+.list__department, .list__company{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: var(--color-black-1);
+}
+
+.list__images{
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.user__title{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: var(--color-black-1);
+
+    text-align: center;
+
+    padding: 69px 0 16px 0;
+}

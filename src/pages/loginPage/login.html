@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../styles/globalStyles.css">
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/login.css">
-    <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/header.css">
+    <link rel="stylesheet" href="/src/styles/login.css">
+    <link rel="stylesheet" href="/src/styles/modal.css">
 
-    <script type="module" src="../scripts/login.js" defer></script>
+    <script type="module" src="/src/pages/loginPage/login.js" defer></script>
 
     <title>Kenzie Empresas</title>
 </head>
 <body>
     <header class="header__container">
-        <img class="header__logo" src="../img/header_logo.svg" alt="Header Logo">
-        <img class="header__menu" src="../img/header_menu.svg" alt="Header Menu">
+        <img class="header__logo" src="/src/img/header_logo.svg" alt="Header Logo">
+        <img class="header__menu" src="/src/img/header_menu.svg" alt="Header Menu">
         <div class="header__box">   
             <button id="homeButton" class="button__home">Home</button>
             <button id="registerButton" class="button__register">Cadastro</button>
@@ -27,8 +27,8 @@
         <div class="main__box">
             <h1 class="main__title">Login</h1>
             <p class="main__text">Preencha os campos para realizar login</p>
-            <input class="login__input" type="text" name="loginInput" id="loginInput" placeholder="Seu e-mail">
-            <input class="login__input" type="text" name="registerInput" id="registerInput" placeholder="Sua senha">
+            <input class="login__input" type="text" name="email" id="email" placeholder="Seu e-mail">
+            <input class="login__input" type="text" name="password" id="password" placeholder="Sua senha">
             <button class="login__button">Login</button>
             <p class="main__or">ou</p>
             <button class="register__button">Cadastra-se</button>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/header.css">
+    <link rel="stylesheet" href="/src/styles/adminPage.css">
+    
+    <script type="module" src="/src/pages/adminPage/adminPage.js" defer></script>
+
+    <title>Kenzie Empresas</title>
+</head>
+<body >
+    <header class="header__container">
+        <img class="header__logo" src="/src/img/header_logo.svg" alt="Header Logo">
+        <button class="button__logout" id="logoutButton" >Logout</button>
+    </header>
+    <main class="main__container">
+        <div class="department__container">
+            <div class="department__header">
+                <h1 class="department__title">Departamentos</h1>
+                <select class="companies__list">
+                    <option selected hidden>Selecionar Empresas</option>
+                </select>
+                <div class="button__box">
+                    <button class="create__button">Criar</button>
+                    <img class="plus_sign" src="/src/img/admin_+.svg" alt="">
+                </div>
+            </div>
+            <ul class="department__box">
+            </ul>
+            <h1 class="user__title">Usuário cadastrados</h1>
+            <ul class="user__box">
+            </ul>
+        <div>
+    </main>
+</body>
+</html>
